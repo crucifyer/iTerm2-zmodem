@@ -10,6 +10,7 @@ if [[ $NAME = "iTerm" ]]; then
 else
 	FILE=$(osascript -e 'tell application "iTerm2" to activate' -e 'tell application "iTerm2" to set thefile to choose file with prompt "Choose a file to send"' -e "do shell script (\"echo \"&(quoted form of POSIX path of thefile as Unicode text)&\"\")")
 fi
+
 if [[ $FILE = "" ]]; then
 	echo Cancelled.
 	# Send ZModem cancel
@@ -18,7 +19,7 @@ if [[ $FILE = "" ]]; then
 	echo
 	echo \# Cancelled transfer
 else
-	/usr/local/bin/sz "$FILE" --escape --binary --bufsize 4096
+	/opt/homebrew/bin/sz "$FILE" --escape --binary --bufsize 4096
 	sleep 1
 	echo
 	echo \# Received "$FILE"

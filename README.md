@@ -1,3 +1,5 @@
+* https://github.com/RobberPhex/iTerm2-zmodem 을 최신 homebrew 용으로 경로만 변경했습니다.
+
 ZModem integration for iTerm 2
 ------------------------------
 
@@ -16,20 +18,24 @@ Troubleshooting
 Setup
 -----
 
-0. Install lrzsz on OSX: `brew install lrzsz`
-1. Save the `iterm2-send-zmodem.sh` and `iterm2-recv-zmodem.sh` scripts in `/usr/local/bin/`
-2. Set up Triggers in iTerm 2 like so:
+```bash
+brew install lrzsz
+curl -sSL https://raw.githubusercontent.com/crucifyer/iTerm2-zmodem/refs/heads/main/iterm2-recv-zmodem.sh -o /opt/homebrew/bin/iterm2-recv-zmodem.sh
+curl -sSL https://raw.githubusercontent.com/crucifyer/iTerm2-zmodem/refs/heads/main/iterm2-send-zmodem.sh -o /opt/homebrew/bin/iterm2-send-zmodem.sh
+chmod 755 /opt/homebrew/bin/iterm2-*.sh
+```
+* Set up Triggers in iTerm 2 like so:
 [How to Create a Trigger](https://www.iterm2.com/documentation-triggers.html)
 
 <pre>
     Regular expression: rz waiting to receive.\*\*B0100
     Action: Run Silent Coprocess
-    Parameters: /usr/local/bin/iterm2-send-zmodem.sh
+    Parameters: /opt/homebrew/bin/iterm2-send-zmodem.sh
     Instant: checked
 
     Regular expression: \*\*B00000000000000
     Action: Run Silent Coprocess
-    Parameters: /usr/local/bin/iterm2-recv-zmodem.sh
+    Parameters: /opt/homebrew/bin/iterm2-recv-zmodem.sh
     Instant: checked
 </pre>
 
