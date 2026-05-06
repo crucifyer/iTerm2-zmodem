@@ -54,3 +54,8 @@ The receive a file from a remote machine
 Future plans (patches welcome)
 
  - Visual progress bar indicator
+
+문제점
+
+* 정상 동작 후에도 stderr 출력이 있습니다.
+* sz 후 \udc8a: command not found 가 발생합니다.
