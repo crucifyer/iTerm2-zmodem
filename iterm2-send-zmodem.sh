@@ -24,4 +24,3 @@ else
 	echo
 	echo \# Received "$FILE"
 fi
-exit 0
