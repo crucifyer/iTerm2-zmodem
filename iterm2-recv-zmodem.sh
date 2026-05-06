@@ -26,3 +26,4 @@ else
 	echo
 	echo \# Sent \-\> $FILE
 fi
+exit 0
